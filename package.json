@@ -1,0 +1,48 @@
+{
+  "name": "vue-reactivator",
+  "version": "1.0.0",
+  "description": "Create reactive Vue properties from arbitrary global state",
+  "keywords": [
+    "environment",
+    "reactive",
+    "state",
+    "vue"
+  ],
+  "homepage": "https://github.com/Loilo/vue-reactivator#readme",
+  "bugs": {
+    "url": "https://github.com/Loilo/vue-reactivator/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Loilo/vue-reactivator.git"
+  },
+  "license": "MIT",
+  "author": "Florian Reuschel <florian@loilo.de>",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/reactivator.common.js",
+  "umd:main": "dist/reactivator.umd.js",
+  "unpkg": "dist/reactivator.umd.js",
+  "module": "dist/reactivator.esm.js",
+  "scripts": {
+    "build": "del dist && concurrently \"rollup --config build/rollup.esm.js\" \"rollup --config build/rollup.common.js\" \"rollup --config build/rollup.umd.js\"",
+    "prepublishOnly": "npm test",
+    "pretest": "npm run build",
+    "test": "eslint src test.js && jest"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "del-cli": "^1.1.0",
+    "eslint": "^5.15.3",
+    "eslint-plugin-prettier": "github:prettier/eslint-plugin-prettier",
+    "jest": "^24.5.0",
+    "prettier": "^1.16.4",
+    "rollup": "^1.7.4",
+    "rollup-plugin-terser": "^4.0.4",
+    "vue": "^2.6.10"
+  },
+  "engines": {
+    "node": ">= 8.6.0"
+  }
+}
