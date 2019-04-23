@@ -98,7 +98,7 @@ export default {
 >
 > You can take a look at the example above [in CodeSandbox](https://codesandbox.io/s/nn5vj1100l). Play around a little bit and resize the preview window, and you will see the numbers update immediately.
 
-Now you can use `this.size` anywhere in your component, you can use it to derive computed properties or put a watcher on it.
+Now you can access `this.size` anywhere in your component, just like a regular prop  — you can use it to derive computed properties or put a watcher on it.
 
 ---
 
@@ -141,11 +141,11 @@ That's it! Not that complicated after all. In a nutshell: A Reactivator implemen
 
 ### `getSsrState()`
 
-Not all information that we have in the browser is available on the server side. Therefore, this method should return a sensible fallback value that is used during server-side rendering.
+Not all information that we have in the browser is available on the server side. Therefore, this method should return a reasonable fallback value that is used during server-side rendering.
 
 It this method is not defined, the property will be `undefined` until `getInitalState()` is called.
 
-> When a user fetches a page from a server, they are usually online. (With things like PWAs in place, this is no longer necessarily the case, but it's sufficient to assume a user is online until the component is rendered and may prove wrong.)
+> When a user fetches a page from a server, they are usually online. (With things like PWAs in place, this is no longer necessarily the case, but it's sufficient to assume a user is online until the component is rendered and may prove us wrong.)
 >
 > ```js
 > online.getSsrState = () => true
@@ -153,9 +153,9 @@ It this method is not defined, the property will be `undefined` until `getInital
 
 ### `getInitialState()`
 
-This method is called inside [the `created` Hook](https://vuejs.org/v2/api/#created) of our component. It should return the value our state initially has when the component is created — it therefore is the client-side equivalent of the `getSsrState` method.
+This method is called inside [the `created` hook](https://vuejs.org/v2/api/#created) of our component. It should return the value our state initially has when the component is created — it therefore is the client-side equivalent of the `getSsrState` method.
 
-It this method is not defined, the property will, again, be `undefined` until listeners initiated in the `listen()` method provide any information.
+If this method is not defined, the property will, again, be `undefined` until the listeners initiated in the `listen()` method provide any information.
 
 > We can get the information whether a user is online from `navigator.onLine`. Therefore, our method looks as simple as this:
 >
