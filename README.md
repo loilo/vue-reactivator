@@ -143,7 +143,7 @@ That's it! Not that complicated after all. In a nutshell: A Reactivator implemen
 
 Not all information that we have in the browser is available on the server side. Therefore, this method should return a reasonable fallback value that is used during server-side rendering.
 
-It this method is not defined, the property will be `undefined` until `getInitalState()` is called.
+If this method is not defined, the property will be `undefined` until `getInitalState()` is called.
 
 > When a user fetches a page from a server, they are usually online. (With things like PWAs in place, this is no longer necessarily the case, but it's sufficient to assume a user is online until the component is rendered and may prove us wrong.)
 >
