@@ -9,9 +9,8 @@
 
 # Reactivator
 
-[![Travis](https://img.shields.io/travis/Loilo/vue-reactivator.svg?label=unix&logo=travis)](https://travis-ci.org/Loilo/vue-reactivator)
-[![AppVeyor](https://img.shields.io/appveyor/ci/Loilo/vue-reactivator.svg?label=windows&logo=appveyor)](https://ci.appveyor.com/project/Loilo/vue-reactivator)
-[![npm](https://img.shields.io/npm/v/vue-reactivator.svg)](https://www.npmjs.com/package/vue-reactivator)
+[![Test status on Travis](https://badgen.net/travis/loilo/vue-reactivator)](https://travis-ci.org/loilo/vue-reactivator)
+[![Version on npm](https://badgen.net/npm/v/vue-reactivator)](https://www.npmjs.com/package/vue-reactivator)
 
 Reactivator is a tiny Vue mixin (0.5KB minified & gzipped) which enables you to create reactive properties from arbitrary non-reactive state.
 
@@ -98,7 +97,7 @@ export default {
 >
 > You can take a look at the example above [in CodeSandbox](https://codesandbox.io/s/nn5vj1100l). Play around a little bit and resize the preview window, and you will see the numbers update immediately.
 
-Now you can access `this.size` anywhere in your component, just like a regular prop  — you can use it to derive computed properties or put a watcher on it.
+Now you can access `this.size` anywhere in your component, just like a regular prop — you can use it to derive computed properties or put a watcher on it.
 
 ---
 
