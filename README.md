@@ -9,7 +9,7 @@
 
 # Reactivator
 
-[![Test status on Travis](https://badgen.net/travis/loilo/vue-reactivator)](https://travis-ci.org/loilo/vue-reactivator)
+[![Tests](https://badgen.net/github/checks/loilo/vue-reactivator/master)](https://github.com/loilo/vue-reactivator/actions)
 [![Version on npm](https://badgen.net/npm/v/vue-reactivator)](https://www.npmjs.com/package/vue-reactivator)
 
 Reactivator is a tiny Vue mixin (0.5KB minified & gzipped) which enables you to create reactive properties from arbitrary non-reactive state.
