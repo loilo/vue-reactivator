@@ -1,6 +1,10 @@
 // The cache for browser state value stores
 const stores = new Map()
 
+// A flag for temporary disabling the mixin, needed when
+// used globally via Vue.mixin() to avoid an loops
+let disabled = false
+
 /**
  * Get a memoized store for the provided implementation which contains the implementation's state
  *
@@ -15,6 +19,7 @@ function getStore(Vue, implementation, initialValue) {
   }
 
   // Create a store if none is cached
+  disabled = true
   const store = new Vue({
     data: {
       value: initialValue,
@@ -52,6 +57,7 @@ function getStore(Vue, implementation, initialValue) {
       }
     }
   })
+  disabled = false
 
   stores.set(implementation, store)
 
@@ -69,6 +75,10 @@ export default function browserStateMixin(implementations) {
 
   return {
     data(vm) {
+      if (disabled) {
+        return {}
+      }
+
       // Set initial values of each implementation
       const data = {
         $browserStateListenerRemovers: []
@@ -92,6 +102,10 @@ export default function browserStateMixin(implementations) {
       return data
     },
     created() {
+      if (disabled) {
+        return
+      }
+
       // Initial state is immutable on the server, bail out of listening
       if (this.$isServer) {
         return
