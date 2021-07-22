@@ -1,5 +1,6 @@
 // The cache for browser state value stores
 const stores = new Map()
+const storeInstances = new Set()
 
 // A flag for temporary disabling the mixin, needed when
 // used globally via Vue.mixin() to avoid an loops
@@ -76,6 +77,7 @@ export default function browserStateMixin(implementations) {
   return {
     data(vm) {
       if (disabled) {
+        storeInstances.add(this)
         return {}
       }
 
@@ -135,6 +137,11 @@ export default function browserStateMixin(implementations) {
       }
     },
     beforeDestroy() {
+      if (storeInstances.has(this)) {
+        storeInstances.delete(this)
+        return
+      }
+
       // Cleanup: Remove listeners from all browser state stores
       for (const removeListener of this.$data.$browserStateListenerRemovers) {
         removeListener()
