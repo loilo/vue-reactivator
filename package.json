@@ -32,7 +32,7 @@
     "test": "eslint src test.js && jest"
   },
   "devDependencies": {
-    "concurrently": "^6.0.0",
+    "concurrently": "^7.0.0",
     "del-cli": "^4.0.1",
     "eslint": "^8.0.0",
     "eslint-plugin-prettier": "github:prettier/eslint-plugin-prettier",
