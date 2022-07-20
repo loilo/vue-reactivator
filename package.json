@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
-    "del-cli": "^4.0.1",
+    "del-cli": "^5.0.0",
     "eslint": "^8.0.0",
     "eslint-plugin-prettier": "github:prettier/eslint-plugin-prettier",
     "jest": "^28.0.0",
